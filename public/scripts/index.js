@@ -8,6 +8,8 @@ const projectContainer = document.getElementById('project-container')
 
 // handle pulling existing projects & displaying
 
+
+// function to create a card for an existing project
 const createCard = (project) => {
     const cardEl = document.createElement('div');
     cardEl.classList.add('card', 'mb-3');

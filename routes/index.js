@@ -1,12 +1,12 @@
-const express = require('express');
+const router = require('express').Router;
+const fs = require('fs');
 
-// Import our modular routers for /tips and /feedback
-const projectRouter = require('./projects');
-const commentRouter = require('./comments');
 
-const app = express();
 
-app.use('/projects', projectRouter);
-app.use('/comments', commentRouter);
+// GET route for projects
 
-module.exports = app;
+
+// POST route for new projects
+
+
+module.exports = router;
