@@ -1,12 +1,16 @@
 const projectForm = document.getElementById('project-form')
 const projectContainer = document.getElementById('project-container')
 
+
+// handle pulling existing projects & displaying
+
+
+
+
 // handle posting a new project 
 
 
 
-
-// handle pulling existing projects & displaying
 
 
 // function to create a card for an existing project
@@ -28,7 +32,7 @@ const createCard = (project) => {
 
     const cardBodyEl = document.createElement('div');
     cardBodyEl.classList.add('card-body', 'bg-light', 'p-2');
-    cardBodyEl.innerHTML = `<p>${project.details}</p> <br> 
+    cardBodyEl.innerHTML = `<p>${project.details}</p> <br/> 
     <p>Yarn Color: ${project.yarn}</p>`;
 
     cardEl.appendChild(cardHeaderEl);
@@ -36,3 +40,7 @@ const createCard = (project) => {
 
     projectContainer.appendChild(cardEl);
 }
+
+// create cards on page load
+
+// handle form submit 
