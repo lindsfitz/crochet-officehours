@@ -4,12 +4,33 @@ const projectContainer = document.getElementById('project-container')
 
 // handle pulling existing projects & displaying
 
-
+const getProjects = () => {
+    return fetch('api/projects')
+        .then((response) => response.json())
+        .then((data) => data.forEach((project) => createCard(project)))
+        .catch(err => console.log(err))
+}
 
 
 // handle posting a new project 
 
-
+const postProject = (project) => {
+    fetch('api/projects', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(project)
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            createCard(project);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
 
 
 
@@ -43,4 +64,32 @@ const createCard = (project) => {
 
 // create cards on page load
 
+// getProjects.then(data => data.forEach((project) => createCard(project)))
+
+getProjects()
+
 // handle form submit 
+
+const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submit invoked');
+
+    const title = document.getElementById('title').value;
+
+    const details = document.getElementById('details').value;
+
+    const yarn = document.getElementById('yarn').value;
+
+
+    const userProject = {
+        title: title,
+        details: details,
+        yarn: yarn
+    };
+
+    postProject(userProject)
+}
+
+
+projectForm.addEventListener('submit', handleFormSubmit)
+
